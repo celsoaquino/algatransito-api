@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 public class ProprietarioController {
 
-    @GetMapping("/proprietarios")
+    @GetMapping("/proprietarios2")
     public List<Proprietario> list() {
         return List.of(
                 new Proprietario(1L, "Celso", "email", "156465"),
