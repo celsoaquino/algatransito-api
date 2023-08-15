@@ -9,8 +9,6 @@ import lombok.*;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Proprietario {
 
