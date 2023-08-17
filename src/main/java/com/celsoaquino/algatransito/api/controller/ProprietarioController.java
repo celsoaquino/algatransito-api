@@ -44,4 +44,14 @@ public class ProprietarioController {
 
         return ResponseEntity.ok(proprietarioAtualizado);
     }
+
+    @DeleteMapping("/{proprietarioId}")
+    public ResponseEntity<Void> delete(@PathVariable Long proprietarioId) {
+        if (!repository.existsById(proprietarioId)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        repository.deleteById(proprietarioId);
+        return ResponseEntity.noContent().build();
+    }
 }
