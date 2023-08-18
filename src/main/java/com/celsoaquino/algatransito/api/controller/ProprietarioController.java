@@ -37,7 +37,7 @@ public class ProprietarioController {
 
     @PutMapping("/{proprietarioId}")
     public ResponseEntity<Proprietario> update(@PathVariable Long proprietarioId,
-                                               @RequestBody Proprietario proprietario) {
+                                               @Valid @RequestBody Proprietario proprietario) {
         if (!proprietarioRespository.existsById(proprietarioId)) {
             return ResponseEntity.notFound().build();
         }
