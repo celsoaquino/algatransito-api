@@ -28,7 +28,7 @@ public class Veiculo {
     private StatusVeiculo status;
 
     private LocalDateTime dataCadastro;
-    private LocalDateTime dataApreesao;
+    private LocalDateTime dataAprensao;
 
     @ManyToOne
     @JoinColumn(name = "proprietario_id")
