@@ -1,13 +1,14 @@
 package com.celsoaquino.algatransito.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+
+import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
 
 @Getter
 @Setter
@@ -24,10 +25,14 @@ public class Veiculo {
     private String modelo;
     private String placa;
 
+    @JsonProperty(access = READ_ONLY)
     @Enumerated(EnumType.STRING)
     private StatusVeiculo status;
 
+    @JsonProperty(access = READ_ONLY)
     private LocalDateTime dataCadastro;
+
+    @JsonProperty(access = READ_ONLY)
     private LocalDateTime dataAprensao;
 
     @ManyToOne
