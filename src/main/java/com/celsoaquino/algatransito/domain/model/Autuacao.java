@@ -1,6 +1,8 @@
 package com.celsoaquino.algatransito.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +19,12 @@ public class Autuacao {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NotBlank
     private String descricao;
+
+    @Positive
     private BigDecimal valorMulta;
+
     private OffsetDateTime dataOcorrencia;
 
     @ManyToOne
