@@ -1,5 +1,6 @@
 package com.celsoaquino.algatransito.api.controller;
 
+import com.celsoaquino.algatransito.domain.exception.NegocioException;
 import com.celsoaquino.algatransito.domain.model.Proprietario;
 import com.celsoaquino.algatransito.domain.repository.ProprietarioRespository;
 import com.celsoaquino.algatransito.domain.service.RegistroProprietarioService;
@@ -56,5 +57,10 @@ public class ProprietarioController {
 
         proprietarioService.deleteById(proprietarioId);
         return ResponseEntity.noContent().build();
+    }
+
+    @ExceptionHandler(NegocioException.class)
+    public ResponseEntity<String> captura(NegocioException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 }
