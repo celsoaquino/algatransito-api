@@ -1,5 +1,6 @@
 package com.celsoaquino.algatransito.domain.model;
 
+import com.celsoaquino.algatransito.domain.validation.ValidationGroups;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +17,7 @@ import lombok.*;
 @Entity
 public class Proprietario {
 
-    @NotNull
+    @NotNull(groups = ValidationGroups.ProprietarioId.class)
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
