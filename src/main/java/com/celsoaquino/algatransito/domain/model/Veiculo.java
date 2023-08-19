@@ -14,6 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,5 +60,12 @@ public class Veiculo {
 
     @OneToMany(mappedBy = "veiculo")
     private List<Autuacao> autuacaos = new ArrayList<>();
+
+    public Autuacao adicionarAutuacao(Autuacao autuacao) {
+        autuacao.setDataOcorrencia(OffsetDateTime.now());
+        autuacao.setVeiculo(this);
+        getAutuacaos().add(autuacao);
+        return autuacao;
+    }
 
 }
