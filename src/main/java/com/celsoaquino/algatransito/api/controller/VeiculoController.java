@@ -2,6 +2,7 @@ package com.celsoaquino.algatransito.api.controller;
 
 import com.celsoaquino.algatransito.api.assembler.VeiculoAssembler;
 import com.celsoaquino.algatransito.api.model.VeiculoModel;
+import com.celsoaquino.algatransito.api.model.input.VeiculoInput;
 import com.celsoaquino.algatransito.domain.model.Veiculo;
 import com.celsoaquino.algatransito.domain.repository.VeiculoRepository;
 import com.celsoaquino.algatransito.domain.service.RegistroVeiculoService;
@@ -37,7 +38,10 @@ public class VeiculoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VeiculoModel cadastrar(@Valid @RequestBody Veiculo veiculo) {
-        return veiculoAssembler.toModel(registroVeiculoService.cadastrar(veiculo));
+    public VeiculoModel cadastrar(@Valid @RequestBody VeiculoInput veiculoInput) {
+        Veiculo novoVeiculo = veiculoAssembler.toEntity(veiculoInput);
+        Veiculo veiculoCadastrado = registroVeiculoService.cadastrar(novoVeiculo);
+
+        return veiculoAssembler.toModel(veiculoCadastrado);
     }
 }
