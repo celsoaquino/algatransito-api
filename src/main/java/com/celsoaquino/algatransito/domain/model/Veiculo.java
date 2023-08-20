@@ -46,10 +46,10 @@ public class Veiculo {
     private StatusVeiculo status;
 
     @JsonProperty(access = READ_ONLY)
-    private LocalDateTime dataCadastro;
+    private OffsetDateTime dataCadastro;
 
     @JsonProperty(access = READ_ONLY)
-    private LocalDateTime dataAprensao;
+    private OffsetDateTime dataAprensao;
 
     @Valid
     @ConvertGroup(from = Default.class, to = ValidationGroups.ProprietarioId.class)
