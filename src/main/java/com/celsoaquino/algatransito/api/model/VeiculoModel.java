@@ -17,6 +17,6 @@ public class VeiculoModel {
     private StatusVeiculo status;
     private OffsetDateTime dataCadastro;
     private OffsetDateTime dataAprensao;
-    private String nameProprietario;
+    private ProprietarioResumoModel proprietario;
 
 }
