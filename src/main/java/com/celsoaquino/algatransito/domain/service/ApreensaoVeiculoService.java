@@ -1,6 +1,5 @@
 package com.celsoaquino.algatransito.domain.service;
 
-import com.celsoaquino.algatransito.domain.model.StatusVeiculo;
 import com.celsoaquino.algatransito.domain.model.Veiculo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
