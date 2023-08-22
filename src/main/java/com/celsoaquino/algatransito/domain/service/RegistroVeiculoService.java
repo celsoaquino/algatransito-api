@@ -1,10 +1,12 @@
 package com.celsoaquino.algatransito.domain.service;
 
+import com.celsoaquino.algatransito.domain.exception.EntidadeNaoEncontradaException;
 import com.celsoaquino.algatransito.domain.exception.NegocioException;
 import com.celsoaquino.algatransito.domain.model.StatusVeiculo;
 import com.celsoaquino.algatransito.domain.model.Veiculo;
 import com.celsoaquino.algatransito.domain.repository.VeiculoRepository;
 import lombok.AllArgsConstructor;
+import org.hibernate.action.internal.EntityActionVetoException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +22,7 @@ public class RegistroVeiculoService {
 
     public Veiculo buscar(Long veiculoId) {
         return veiculoRepository.findById(veiculoId)
-                .orElseThrow(() -> new NegocioException("Veiculo não encontrado."));
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Veiculo não encontrado."));
     }
     @Transactional
     public Veiculo cadastrar(Veiculo novoVeiculo) {
